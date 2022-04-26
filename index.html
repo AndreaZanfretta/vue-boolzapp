@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="user-contacts">
-                        <div class="users" v-for="(users, index) in contacts">
+                        <div @click="change(index)" class="users" v-for="(users, index) in contacts">
                             <img :src="'img/avatar' + users.avatar + '.jpg'" alt="">
                             <div class="users-info">
                                 <p>{{users.name}}</p>
@@ -53,12 +53,27 @@
                 </div>
                 <div class="messages">
                     <div class="user">
-                        <img :src="'img/avatar' + contacts.avatar + '.jpg'" alt="">
-                            <div class="users-info">
-                                <p>{{contacts[0].name}}</p>
-                                <p>ultimo messaggio inviato</p>
+                        <img :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="">
+                        <div class="users-info">
+                            <p>{{contacts[activeIndex].name}}</p>
+                            <p>Ultimo accesso oggi alle: 12:00</p>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <div  v-for="(text, index) in contacts[activeIndex].messages" :class="text.status == 'sent' ? 'send' : 'received' " class="message-wrapper">
+                            <div  class="texts-box" :class="(text.status == 'sent') ? 'green' : 'white' ">
+                                <p>{{text.message}}</p>
+                                <p>12:00</p>
                             </div>
-                            <p class="last-message">12:00</p>
+                        </div>
+                    </div>
+                    <div class="send-message">
+
                     </div>
                 </div>
             </div>
