@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         activeIndex: 0,
         isActive: false,
+        messaggio: '',
         contacts: [
     	    {
                 id: 1,
@@ -180,6 +181,15 @@ const app = new Vue({
         change(index){
             this.activeIndex = index;
             this.isActive = true;
+        },
+        send(){
+            const messageSent = {
+                date: '10/01/2020 15:30:55',
+                message: this.messaggio,
+                status: 'sent'
+            }
+            this.contacts[this.activeIndex].messages.push(messageSent);
+            this.messaggio = "";
         }
     },
   })
