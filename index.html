@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="user-contacts">
-                        <div @click="change(index)" class="users" v-for="(users, index) in contacts">
+                        <div @click="change(index)" class="users" v-for="(users, index) in contacts" :class="(isActive = true && index === activeIndex) ? 'active' : '' ">
                             <img :src="'img/avatar' + users.avatar + '.jpg'" alt="">
                             <div class="users-info">
                                 <p>{{users.name}}</p>
@@ -73,7 +73,9 @@
                         </div>
                     </div>
                     <div class="send-message">
-
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input id="message-send" type="text" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
             </div>

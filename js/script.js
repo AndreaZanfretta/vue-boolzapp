@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#root',
     data: {
         activeIndex: 0,
+        isActive: false,
         contacts: [
     	    {
                 id: 1,
@@ -178,6 +179,7 @@ const app = new Vue({
     methods: {
         change(index){
             this.activeIndex = index;
+            this.isActive = true;
         }
     },
   })
