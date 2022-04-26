@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>BoolZap</title>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <div class="main-box">
+                <div class="contacts">
+                    <div class="user">
+                        <div class="user-info">
+                            <img src="img/avatar_io.jpg" alt="">
+                            <p>Sofia</p>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <div class="bell">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="text">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <p>attiva notifiche desktop</p>
+                        </div>
+                    </div>
+                    <div class="search-bar">
+                        <div class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
+                    <div class="user-contacts">
+                        <div class="users" v-for="(users, index) in contacts">
+                            <img :src="'img/avatar' + users.avatar + '.jpg'" alt="">
+                            <div class="users-info">
+                                <p>{{users.name}}</p>
+                                <p>ultimo messaggio inviato</p>
+                            </div>
+                            <p class="last-message">12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messages">
+                    <div class="user">
+                        <img :src="'img/avatar' + contacts.avatar + '.jpg'" alt="">
+                            <div class="users-info">
+                                <p>{{contacts[0].name}}</p>
+                                <p>ultimo messaggio inviato</p>
+                            </div>
+                            <p class="last-message">12:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
