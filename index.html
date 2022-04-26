@@ -37,11 +37,11 @@
                     <div class="search-bar">
                         <div class="search">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input @keyup="filter" id="search" type="text" placeholder="Cerca o inizia una nuova chat" v-model="filtro">
                         </div>
                     </div>
                     <div class="user-contacts">
-                        <div @click="change(index)" class="users" v-for="(users, index) in contacts" :class="(isActive = true && index === activeIndex) ? 'active' : '' ">
+                        <div @click="change(index)" class="users" v-for="(users, index) in contactsFilter" :class="(isActive = true && index === activeIndex) ? 'active' : '' ">
                             <img :src="'img/avatar' + users.avatar + '.jpg'" alt="">
                             <div class="users-info">
                                 <p>{{users.name}}</p>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="send-message">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input id="message-send" type="text" placeholder="Scrivi un messaggio">
+                        <input @keyup.enter="send" id="message-send" type="text" v-model="messaggio" placeholder="Scrivi un messaggio">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>

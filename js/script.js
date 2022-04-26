@@ -4,6 +4,8 @@ const app = new Vue({
         activeIndex: 0,
         isActive: false,
         messaggio: '',
+        contactsFilter: [],
+        filtro: '',
         contacts: [
     	    {
                 id: 1,
@@ -190,6 +192,15 @@ const app = new Vue({
             }
             this.contacts[this.activeIndex].messages.push(messageSent);
             this.messaggio = "";
+        },
+        filter(){
+            this.contactsFilter = this.contacts.filter((user)=>{
+                const names = user.name.toLowerCase();
+                return user.name.toLowerCase().includes(this.filtro.toLowerCase());
+            })
         }
     },
+    mounted(){
+        this.filter();
+    }
   })
