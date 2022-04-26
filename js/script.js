@@ -6,6 +6,7 @@ const app = new Vue({
         messaggio: '',
         contactsFilter: [],
         filtro: '',
+        lastMessage: [],
         contacts: [
     	    {
                 id: 1,
@@ -14,17 +15,17 @@ const app = new Vue({
     	        visible: true,
     	        messages: [
     	            {
-    	                date: '10/01/2020 15:30:55',
+                        date: '10/01/2020 15:30:55',
     	                message: 'Hai portato a spasso il cane?',
     	                status: 'sent'
     	            },
     	            {
-    	                date: '10/01/2020 15:50:00',
+                        date: '10/01/2020 15:50:00',
     	                message: 'Ricordati di stendere i panni',
     	                status: 'sent'
     	            },
     	            {
-    	                date: '10/01/2020 16:15:22',
+                        date: '10/01/2020 16:15:22',
     	                message: 'Tutto fatto!',
     	                status: 'received'
     	            }
@@ -37,17 +38,17 @@ const app = new Vue({
     	        visible: true,
     	        messages: [
     	            {
-    	                date: '20/03/2020 16:30:00',
+                        date: '20/03/2020 16:30:00',
     	                message: 'Ciao come stai?',
     	                status: 'sent'
     	            },
     	            {
-    	                date: '20/03/2020 16:30:55',
+                        date: '20/03/2020 16:30:55',
     	                message: 'Bene grazie! Stasera ci vediamo?',
     	                status: 'received'
     	            },
     	            {
-    	                date: '20/03/2020 16:35:00',
+                        date: '20/03/2020 16:35:00',
     	                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
     	                status: 'sent'
     	            }
@@ -186,7 +187,7 @@ const app = new Vue({
         },
         send(){
             const messageSent = {
-                date: '10/01/2020 15:30:55',
+                date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
                 message: this.messaggio,
                 status: 'sent'
             }
@@ -198,9 +199,23 @@ const app = new Vue({
                 const names = user.name.toLowerCase();
                 return user.name.toLowerCase().includes(this.filtro.toLowerCase());
             })
+        },
+        newDate(){
+            dayjs.extend(window.dayjs_plugin_customParseFormat);
+            this.contacts.forEach((contact, index)=>{
+                contact.messages.forEach((message, index)=>{
+                    dayjs.extend(window.dayjs_plugin_customParseFormat);
+                    message.date = dayjs(message.date, 'MM/DD/YYYY HH:mm:ss');
+                    message.date = new Date(message.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    console.log(message.date)
+                })
+            })
+           /*  this.date = new Date(this.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) */
+            
         }
     },
     mounted(){
         this.filter();
+        this.newDate();
     }
   })
