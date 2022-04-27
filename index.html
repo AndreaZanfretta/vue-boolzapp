@@ -73,7 +73,7 @@
                     </div>
                     <div class="message-box">
                         <div v-for="(text, index) in contacts[activeIndex].messages" :class="text.status == 'sent' ? 'send' : 'received' && text.status == 'null' ? 'null' : '' " class="message-wrapper">
-                            <div ref="lastMsg" class="texts-box" :class="(text.status == 'sent') ? 'green' : 'white' ">
+                            <div class="texts-box" :class="(text.status == 'sent') ? 'green' : 'white' ">
                                 <p>{{text.message}}</p>
                                 <i id="drop" class="fa-solid fa-angle-down">
                                     <div class="dropdown">

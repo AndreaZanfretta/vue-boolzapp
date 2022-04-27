@@ -190,14 +190,13 @@ const app = new Vue({
 				}
 				this.contacts[this.activeIndex].messages.push(msg);
 			}
-			console.log(index, this.contacts[this.activeIndex].messages[index])
 			this.contacts[this.activeIndex].messages.splice(index, 1);
 		},
         change(index){
             this.activeIndex = index;
             this.isActive = true;
         },
-        send($refs){
+        send(){
 			const answers = ["va bene!", "OK!", "grisati", "Pippo"];
 			const random = Math.floor(Math.random() * 4);
             const messageSent = {
@@ -209,6 +208,7 @@ const app = new Vue({
 				alert("inserisci un messaggio valido")
 			}else{
 				this.contacts[this.activeIndex].messages.push(messageSent);
+				this.scroll();
 				this.messaggio = "";
 				const messageReceived = {
 					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
@@ -217,10 +217,19 @@ const app = new Vue({
 				}
 				const interval = setInterval(()=>{
 					this.contacts[this.activeIndex].messages.push(messageReceived);
+					this.scroll();
 					clearInterval(interval);
 				}, 1000);
+
 			}
         },
+		scroll(){
+			this.$nextTick( () => {
+				//console.log("Dentro nextTick, indice attivo", this.activeIndex);
+				document.getElementsByClassName('message-box')[0].scroll(0, document.getElementsByClassName('message-box')[0].scrollHeight)
+				console.log(document.getElementsByClassName('message-box'))
+			});
+		},
         filter(){
             this.contactsFilter = this.contacts.filter((user)=>{
                 const names = user.name.toLowerCase();
@@ -240,7 +249,6 @@ const app = new Vue({
 		deleteChat(){
 			console.log(this.contacts[this.activeIndex].messages.length)
 			this.contacts[this.activeIndex].messages.splice(0, this.contacts[this.activeIndex].messages.length - 1)
-			console.log(this.contacts[this.activeIndex].messages.length)
 			if(this.contacts[this.activeIndex].messages.length === 1){
 				const msg = {
 					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
