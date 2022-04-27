@@ -63,8 +63,8 @@
     color: #B1B1B1;
     cursor: pointer;
 }
-.fa-circle:hover{
-    color: #686868;
+.fa-solid .fa-ellipsis-vertical:hover{
+    color: #ec0000;
 }
 .icons i:last-child{
     margin-right: 20px;
