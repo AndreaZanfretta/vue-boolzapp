@@ -197,7 +197,7 @@ const app = new Vue({
             this.activeIndex = index;
             this.isActive = true;
         },
-        send(){
+        send($refs){
 			const answers = ["va bene!", "OK!", "grisati", "Pippo"];
 			const random = Math.floor(Math.random() * 4);
             const messageSent = {
@@ -210,17 +210,16 @@ const app = new Vue({
 			}else{
 				this.contacts[this.activeIndex].messages.push(messageSent);
 				this.messaggio = "";
-			const messageReceived = {
-				date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
-				message: answers[random],
-				status: 'received'
+				const messageReceived = {
+					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+					message: answers[random],
+					status: 'received'
+				}
+				const interval = setInterval(()=>{
+					this.contacts[this.activeIndex].messages.push(messageReceived);
+					clearInterval(interval);
+				}, 1000);
 			}
-			const interval = setInterval(()=>{
-				this.contacts[this.activeIndex].messages.push(messageReceived);
-				clearInterval(interval);
-			}, 1000);
-			}
-            
         },
         filter(){
             this.contactsFilter = this.contacts.filter((user)=>{
