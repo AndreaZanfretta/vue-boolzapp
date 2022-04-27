@@ -182,6 +182,14 @@ const app = new Vue({
     },
     methods: {
 		remove(index){
+			if(this.contacts[this.activeIndex].messages.length === 1){
+				const msg = {
+					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+					message: "non ci sono messaggi",
+					status: 'null'
+				}
+				this.contacts[this.activeIndex].messages.push(msg);
+			}
 			console.log(index, this.contacts[this.activeIndex].messages[index])
 			this.contacts[this.activeIndex].messages.splice(index, 1);
 		},
@@ -190,15 +198,18 @@ const app = new Vue({
             this.isActive = true;
         },
         send(){
-			const answers = ["porcoddio", "OK!", "grisati", "Vado a pippare"];
+			const answers = ["va bene!", "OK!", "grisati", "Pippo"];
 			const random = Math.floor(Math.random() * 4);
             const messageSent = {
                 date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
                 message: this.messaggio,
                 status: 'sent'
             }
-            this.contacts[this.activeIndex].messages.push(messageSent);
-            this.messaggio = "";
+			if(messageSent.message === ""){
+				alert("inserisci un messaggio valido")
+			}else{
+				this.contacts[this.activeIndex].messages.push(messageSent);
+				this.messaggio = "";
 			const messageReceived = {
 				date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
 				message: answers[random],
@@ -208,7 +219,8 @@ const app = new Vue({
 				this.contacts[this.activeIndex].messages.push(messageReceived);
 				clearInterval(interval);
 			}, 1000);
-			
+			}
+            
         },
         filter(){
             this.contactsFilter = this.contacts.filter((user)=>{
@@ -230,5 +242,5 @@ const app = new Vue({
     mounted(){
         this.filter();
         this.newDate();
-    }
+    },
   })

@@ -292,3 +292,6 @@
 .dropdown span:hover{
     background-color: #c0c0c0;
 }
+.null{
+    display: none;
+}
