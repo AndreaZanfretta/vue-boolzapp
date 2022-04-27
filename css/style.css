@@ -63,8 +63,8 @@
     color: #B1B1B1;
     cursor: pointer;
 }
-.fa-solid .fa-ellipsis-vertical:hover{
-    color: #ec0000;
+.fa-ellipsis-vertical:hover{
+    color: #757575;
 }
 .icons i:last-child{
     margin-right: 20px;
@@ -294,4 +294,26 @@
 }
 .null{
     display: none;
+}
+.drop{
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    width: 119px;
+    height: 50px;
+    display: none;
+}
+.drop p{
+    font-size: 12px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid #6B7376;
+    cursor: pointer;
+}
+.drop p:hover{
+    background-color: #c0c0c0;
+}
+#ell:hover .drop{
+    display: block;
 }

@@ -237,7 +237,21 @@ const app = new Vue({
                     message.date = new Date(message.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 })
             })          
-        }
+        },
+		deleteChat(){
+			console.log(this.contacts[this.activeIndex].messages.length)
+			this.contacts[this.activeIndex].messages.splice(0, this.contacts[this.activeIndex].messages.length - 1)
+			console.log(this.contacts[this.activeIndex].messages.length)
+			if(this.contacts[this.activeIndex].messages.length === 1){
+				const msg = {
+					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+					message: "non ci sono messaggi",
+					status: 'null'
+				}
+				this.contacts[this.activeIndex].messages.push(msg);
+				this.contacts[this.activeIndex].messages.splice(0, 1);
+			}
+		},
     },
     mounted(){
         this.filter();

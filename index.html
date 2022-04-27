@@ -63,7 +63,12 @@
                         <div class="icons">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i id="ell" class="fa-solid fa-ellipsis-vertical">
+                                <div class="drop">
+                                    <p @click="deleteChat">Elimina Chat</p>
+                                </div>
+                            </i>
+                            
                         </div>
                     </div>
                     <div class="message-box">
