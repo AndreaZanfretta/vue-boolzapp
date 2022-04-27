@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+*:focus{
+    outline: none;
+}
 .container{
     height: 100vh;
     width: 100%;
@@ -58,6 +61,10 @@
     margin: 0 5px;
     font-size: 20px;
     color: #B1B1B1;
+    cursor: pointer;
+}
+.fa-circle:hover{
+    color: #686868;
 }
 .icons i:last-child{
     margin-right: 20px;
@@ -249,4 +256,39 @@
     padding-left: 20px;
     border: 0;
     border-radius: 10px;
+}
+.texts-box i{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #6B7376;
+    display: none;
+    cursor: pointer;
+}
+.texts-box:hover i{
+    display: block;
+}
+#drop:hover > .dropdown{
+    display: block;
+}
+.dropdown{
+    position: absolute;
+    top: 12px;
+    right: -41px;
+    width: 100px;
+    height: 70px;
+    background-color: #ffffff;
+    display: none;
+    z-index: 2000;
+}
+.dropdown span{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: black;
+    padding: 10px 0px;
+    border: 1px solid #6B7376;
+}
+.dropdown span:hover{
+    background-color: #c0c0c0;
 }

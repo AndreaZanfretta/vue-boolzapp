@@ -6,7 +6,7 @@ const app = new Vue({
         messaggio: '',
         contactsFilter: [],
         filtro: '',
-        lastMessage: [],
+		isClicked: false,
         contacts: [
     	    {
                 id: 1,
@@ -181,11 +181,17 @@ const app = new Vue({
             
     },
     methods: {
+		remove(index){
+			console.log(index, this.contacts[this.activeIndex].messages[index])
+			this.contacts[this.activeIndex].messages.splice(index, 1);
+		},
         change(index){
             this.activeIndex = index;
             this.isActive = true;
         },
         send(){
+			const answers = ["porcoddio", "OK!", "grisati", "Vado a pippare"];
+			const random = Math.floor(Math.random() * 4);
             const messageSent = {
                 date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
                 message: this.messaggio,
@@ -193,6 +199,16 @@ const app = new Vue({
             }
             this.contacts[this.activeIndex].messages.push(messageSent);
             this.messaggio = "";
+			const messageReceived = {
+				date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+				message: answers[random],
+				status: 'received'
+			}
+			const interval = setInterval(()=>{
+				this.contacts[this.activeIndex].messages.push(messageReceived);
+				clearInterval(interval);
+			}, 1000);
+			
         },
         filter(){
             this.contactsFilter = this.contacts.filter((user)=>{
@@ -207,11 +223,8 @@ const app = new Vue({
                     dayjs.extend(window.dayjs_plugin_customParseFormat);
                     message.date = dayjs(message.date, 'MM/DD/YYYY HH:mm:ss');
                     message.date = new Date(message.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                    console.log(message.date)
                 })
-            })
-           /*  this.date = new Date(this.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) */
-            
+            })          
         }
     },
     mounted(){
