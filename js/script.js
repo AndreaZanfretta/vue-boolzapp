@@ -226,7 +226,7 @@ const app = new Vue({
 		scroll(){
 			this.$nextTick( () => {
 				//console.log("Dentro nextTick, indice attivo", this.activeIndex);
-				document.getElementsByClassName('message-box')[0].scroll(0, document.getElementsByClassName('message-box')[0].scrollHeight)
+				document.getElementsByClassName('message-box')[0].scroll({left:0, top: document.getElementsByClassName('message-box')[0].scrollHeight, behavior: "smooth"})
 				console.log(document.getElementsByClassName('message-box'))
 			});
 		},
