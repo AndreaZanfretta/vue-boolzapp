@@ -140,6 +140,11 @@
     align-items: center;
     cursor: pointer;
 }
+.ellipsis{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
 .users:hover{
     background-color: #E9EBEB;
 }
@@ -164,6 +169,10 @@
 .users-info p:last-child{
     font-size: 14px;
     color: #6d6d6d;
+    width: 280px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .last-message{
     position: absolute;

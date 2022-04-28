@@ -173,6 +173,10 @@ input[type="text"], textarea {
 .users-info p:last-child{
     font-size: 14px;
     color: #adabab;
+    width: 280px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .last-message{
     position: absolute;
