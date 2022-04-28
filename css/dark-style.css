@@ -238,6 +238,9 @@ input[type="text"], textarea {
     align-content: center;
     position: relative;
 }
+.break{
+    word-break: break-all;
+}
 .green{
     background-color: #02425f;
     color: white;

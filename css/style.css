@@ -229,6 +229,9 @@
     position: relative;
     word-wrap: break-all;
 }
+.break{
+    word-break: break-all;
+}
 .green{
     background-color: #D5F9BA;
 }
