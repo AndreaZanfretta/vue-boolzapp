@@ -334,3 +334,12 @@ input[type="text"], textarea {
 #ell:hover .drop{
     display: block;
 }
+.fa-microphone, .fa-paper-plane, .fa-face-smile{
+    cursor: pointer;
+    }
+    .fa-microphone:hover{
+        color: #616161;
+    }
+    .fa-paper-plane:hover{
+        color: #616161;
+    }

@@ -250,7 +250,7 @@
     text-align: center;
 }
 .send-message i{
-    color: #6B7376;
+    color: #B1B1B1;
 }
 #message-send{
     width: 80%;
@@ -318,4 +318,13 @@
 }
 #ell:hover .drop{
     display: block;
+}
+.fa-microphone, .fa-paper-plane, .fa-face-smile{
+cursor: pointer;
+}
+.fa-microphone:hover{
+    color: #757575;
+}
+.fa-paper-plane:hover{
+    color: #757575;
 }
