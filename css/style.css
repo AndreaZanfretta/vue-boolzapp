@@ -169,7 +169,7 @@
 .users-info p:last-child{
     font-size: 14px;
     color: #6d6d6d;
-    width: 280px;
+    width: 400px;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
