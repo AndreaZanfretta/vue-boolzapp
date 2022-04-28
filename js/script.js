@@ -228,9 +228,7 @@ const app = new Vue({
         },
 		scroll(){
 			this.$nextTick( () => {
-				//console.log("Dentro nextTick, indice attivo", this.activeIndex);
 				document.getElementsByClassName('message-box')[0].scroll({left:0, top: document.getElementsByClassName('message-box')[0].scrollHeight, behavior: "smooth"})
-				console.log(document.getElementsByClassName('message-box'))
 			});
 		},
         filter(){
@@ -250,7 +248,6 @@ const app = new Vue({
             })          
         },
 		deleteChat(){
-			console.log(this.contacts[this.activeIndex].messages.length)
 			this.contacts[this.activeIndex].messages.splice(0, this.contacts[this.activeIndex].messages.length - 1)
 			if(this.contacts[this.activeIndex].messages.length === 1){
 				const msg = {
@@ -274,14 +271,12 @@ const app = new Vue({
 		},
 		sending(){
 			if(!this.isWriting){
-				console.log("non faccio un cazzo")
 			}else{
 				this.send();
 			}
 			
 		},
 		writing(){
-			console.log(this.messaggio)
 			if(this.messaggio !== ""){
 				this.isWriting = true;
 			}else{
