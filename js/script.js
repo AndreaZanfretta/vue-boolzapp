@@ -220,6 +220,7 @@ const app = new Vue({
 				}
 				const interval = setInterval(()=>{
 					this.contacts[this.activeIndex].messages.push(messageReceived);
+					console.log()
 					this.scroll();
 					clearInterval(interval);
 				}, 1000);
