@@ -319,12 +319,15 @@
 #ell:hover .drop{
     display: block;
 }
-.fa-microphone, .fa-paper-plane, .fa-face-smile{
+.fa-microphone, .fa-paper-plane, .fa-face-smile, .fa-moon{
 cursor: pointer;
 }
 .fa-microphone:hover{
     color: #757575;
 }
 .fa-paper-plane:hover{
+    color: #757575;
+}
+.fa-moon:hover{
     color: #757575;
 }
