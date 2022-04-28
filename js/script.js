@@ -8,6 +8,7 @@ const app = new Vue({
         filtro: '',
 		isClicked: false,
 		dark: false,
+		isWriting: false,
         contacts: [
     	    {
                 id: 1,
@@ -211,6 +212,7 @@ const app = new Vue({
 				this.contacts[this.activeIndex].messages.push(messageSent);
 				this.scroll();
 				this.messaggio = "";
+				this.isWriting = false;
 				const messageReceived = {
 					date: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
 					message: answers[random],
@@ -269,6 +271,22 @@ const app = new Vue({
 				this.dark = false;
 			}
 			
+		},
+		sending(){
+			if(!this.isWriting){
+				console.log("non faccio un cazzo")
+			}else{
+				this.send();
+			}
+			
+		},
+		writing(){
+			console.log(this.messaggio)
+			if(this.messaggio !== ""){
+				this.isWriting = true;
+			}else{
+				this.isWriting = false;
+			}
 		},
     },
     mounted(){

@@ -89,8 +89,8 @@
                     </div>
                     <div class="send-message">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input @keyup.enter="send" id="message-send" type="text" v-model="messaggio" placeholder="Scrivi un messaggio">
-                        <i class="fa-solid fa-microphone"></i>
+                        <input @keyup="writing" @keyup.enter="send" id="message-send" type="text" v-model="messaggio" placeholder="Scrivi un messaggio">
+                        <i @click="sending" :class="isWriting === false ? 'fa-solid fa-microphone' : 'fa-solid fa-paper-plane'"></i>
                     </div>
                 </div>
             </div>
