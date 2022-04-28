@@ -7,6 +7,7 @@ const app = new Vue({
         contactsFilter: [],
         filtro: '',
 		isClicked: false,
+		dark: false,
         contacts: [
     	    {
                 id: 1,
@@ -259,9 +260,25 @@ const app = new Vue({
 				this.contacts[this.activeIndex].messages.splice(0, 1);
 			}
 		},
+		switchMode(){
+			if(this.dark === false){
+				switchMode("css/dark-style.css");
+				this.dark = true;
+			}else{
+				switchMode("css/style.css");
+				this.dark = false;
+			}
+			
+		},
     },
     mounted(){
         this.filter();
         this.newDate();
     },
   })
+
+  function switchMode(url){
+	let theme = document.getElementById("css");
+	theme.setAttribute('href', url);
+  }
+  

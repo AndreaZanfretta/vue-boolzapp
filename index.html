@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.1/dayjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/plugin/customParseFormat.min.js" integrity="sha512-nbPJ/ANJ1DCwUWGyfS+PY7RMysy5UnFyOzPTjzcphOuVbUqrukQAZ9kkNvTkPmItJRuuL5IqNufQTHPyxxpmig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link id="css" rel="stylesheet" href="css/style.css">
     <title>BoolZap</title>
 </head>
 <body>
@@ -22,6 +22,7 @@
                             <p>Sofia</p>
                         </div>
                         <div class="icons">
+                            <i @click="switchMode" :class="dark === false ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
