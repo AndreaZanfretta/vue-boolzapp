@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="user-contacts">
-                        <div @click="change(users)" class="users" v-for="(users, index) in contactsFilter" :class="(isActive = true && users.id === activeIndex) ? 'active' : '' ">
+                        <div @click="change(users)" class="users" v-for="(users, index) in contactsFilter" :class="(isActive = true && users.id === activeIndex + 1) ? 'active' : '' ">
                             <img :src="'img/avatar' + users.avatar + '.jpg'" alt="">
                             <div class="users-info">
                                 <p>{{users.name}}</p>

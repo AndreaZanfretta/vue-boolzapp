@@ -195,7 +195,7 @@ const app = new Vue({
 			this.contacts[this.activeIndex].messages.splice(index, 1);
 		},
         change(users){
-			console.log(users)
+			console.log(users.id, this.activeIndex)
             this.activeIndex = users.id - 1;
             this.isActive = true;
         },
