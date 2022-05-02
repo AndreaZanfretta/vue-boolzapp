@@ -164,10 +164,12 @@ input[type="text"], textarea {
 }
 .users-info{
     display: inline-block;
+    max-width: 315px;
 }
 .users-info p{
     display: block;
     font-size: 18px;
+    max-width: 315px;
 
 }
 .users-info p:last-child{
@@ -177,6 +179,7 @@ input[type="text"], textarea {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 315px;
 }
 .last-message{
     position: absolute;

@@ -160,10 +160,12 @@
 }
 .users-info{
     display: inline-block;
+    max-width: 315px;
 }
 .users-info p{
     display: block;
     font-size: 18px;
+    max-width: 315px;
 
 }
 .users-info p:last-child{
@@ -173,6 +175,7 @@
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 315px;
 }
 .last-message{
     position: absolute;
