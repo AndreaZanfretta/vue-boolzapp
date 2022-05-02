@@ -164,7 +164,6 @@ input[type="text"], textarea {
 }
 .users-info{
     display: inline-block;
-    max-width: 315px;
 }
 .users-info p{
     display: block;
